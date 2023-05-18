@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Length Conversion Calculator</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <style>
+    .container {
+      max-width: 400px;
+      margin: 50px auto;
+      background-color: #ffbbff;
+    }
+    body{
+       background-color: #ffbbff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Length Conversion Calculator</h2>
+    <form>
+      <div class="form-group">
+        <label for="millimetersInput">Millimeters:</label>
+        <input type="number" class="form-control" id="millimetersInput" placeholder="Enter millimeters">
+      </div>
+      <div class="form-group">
+        <label for="centimetersOutput">Centimeters:</label>
+        <input type="text" class="form-control" id="centimetersOutput" readonly>
+      </div>
+      <div class="form-group">
+        <label for="metersOutput">Meters:</label>
+        <input type="text" class="form-control" id="metersOutput" readonly>
+      </div>
+      <div class="form-group">
+        <label for="kilometersOutput">Kilometers:</label>
+        <input type="text" class="form-control" id="kilometersOutput" readonly>
+      </div>
+      <button type="button" class="btn btn-primary" onclick="convertLength()">Convert</button>
+      <button type="button" class="btn btn-secondary" onclick="clearFields()">Clear</button>
+    </form>
+  </div>
+
+  <script>
+    function convertLength() {
+      // Get the input value in millimeters
+      var millimeters = parseFloat(document.getElementById("millimetersInput").value);
+
+      // Convert to centimeters
+      var centimeters = millimeters / 10;
+      document.getElementById("centimetersOutput").value = centimeters.toFixed(2);
+
+      // Convert to meters
+      var meters = millimeters / 1000;
+      document.getElementById("metersOutput").value = meters.toFixed(3);
+
+      // Convert to kilometers
+      var kilometers = millimeters / 1000000;
+      document.getElementById("kilometersOutput").value = kilometers.toFixed(6);
+    }
+
+    function clearFields() {
+      // Clear input field
+      document.getElementById("millimetersInput").value = "";
+
+      // Clear output fields
+      document.getElementById("centimetersOutput").value = "";
+      document.getElementById("metersOutput").value = "";
+      document.getElementById("kilometersOutput").value = "";
+    }
+  </script>
+</body>
+</html>
